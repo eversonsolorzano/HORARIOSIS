@@ -1,0 +1,23 @@
+HORARIOS/
+├── includes/
+├── coordinador/
+│   ├── usuarios/
+│   ├── programas/
+│   ├── estudiantes/
+│   ├── profesores/
+│   ├── semestres/
+│   ├── cursos/
+│   ├── aulas/
+│   ├── horarios/
+│   ├── inscripciones/
+│   ├── cambios_horario/
+│   ├── notificaciones/
+│   ├── configuracion/
+│   └── reportes/
+├── profesor/
+├── estudiante/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
+└── api/

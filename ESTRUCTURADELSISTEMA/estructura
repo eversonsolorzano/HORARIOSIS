@@ -1,0 +1,135 @@
+sistema_horarios/
+│
+├── index.php                      # Redirección automática
+├── login.php                      # Login único
+├── logout.php                     # Cerrar sesión
+├── perfil.php                     # Actualizar perfil
+│
+├── includes/                      # Archivos esenciales
+│   ├── config.php                 # Configuración
+│   ├── database.php               # Conexión PDO/MySQLi
+│   ├── auth.php                   # Autenticación
+│   ├── session.php                # Manejo sesiones
+│   ├── funciones.php              # Funciones globales
+│   └── permisos.php               # Control por rol
+│
+├── assets/
+│   ├── css/
+│   │   ├── main.css
+│   │   ├── login.css
+│   │   ├── dashboard.css
+│   │   └── horarios.css
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── horarios.js
+│   │   ├── validaciones.js
+│   │   └── calendar.js
+│   │
+│   └── images/
+│       ├── logo.png
+│       └── favicon.ico
+│
+├── coordinador/                   # COORDINADOR (según BD)
+│   ├── dashboard.php              # Panel principal
+│   │
+│   ├── usuarios/                  # Tabla: usuarios
+│   │   ├── index.php             # Listar usuarios
+│   │   ├── crear.php             # Crear usuario
+│   │   ├── editar.php            # Editar usuario
+│   │   └── eliminar.php          # Cambiar estado activo
+│   │
+│   ├── programas/                 # Tabla: programas_estudio
+│   │   ├── index.php             # Listar programas
+│   │   ├── crear.php             # Crear programa
+│   │   ├── editar.php            # Editar programa
+│   │   └── asignar_coordinador.php
+│   │
+│   ├── estudiantes/               # Tabla: estudiantes
+│   │   ├── index.php             # Listar estudiantes
+│   │   ├── crear.php             # Crear estudiante
+│   │   ├── editar.php            # Editar estudiante
+│   │   ├── ver.php               # Ver detalles
+│   │   └── cambiar_estado.php    # Cambiar estado
+│   │
+│   ├── profesores/                # Tabla: profesores
+│   │   ├── index.php             # Listar profesores
+│   │   ├── crear.php             # Crear profesor
+│   │   ├── editar.php            # Editar profesor
+│   │   └── asignar_programas.php
+│   │
+│   ├── semestres/                 # Tabla: semestres_academicos
+│   │   ├── index.php             # Listar semestres
+│   │   ├── crear.php             # Crear semestre
+│   │   └── cambiar_estado.php    # Cambiar estado
+│   │
+│   ├── cursos/                    # Tabla: cursos
+│   │   ├── index.php             # Listar cursos
+│   │   ├── crear.php             # Crear curso
+│   │   ├── editar.php            # Editar curso
+│   │   └── gestionar_prerrequisitos.php
+│   │
+│   ├── aulas/                     # Tabla: aulas
+│   │   ├── index.php             # Listar aulas
+│   │   ├── crear.php             # Crear aula
+│   │   ├── editar.php            # Editar aula
+│   │   └── disponibilidad.php    # Ver horarios por aula
+│   │
+│   ├── horarios/                  # Tabla: horarios (CORE)
+│   │   ├── index.php             # Ver todos horarios
+│   │   ├── crear.php             # Crear horario
+│   │   ├── editar.php            # Editar horario
+│   │   ├── eliminar.php          # Eliminar horario
+│   │   ├── ver.php               # Ver detalles
+│   │   ├── conflictos.php        # Detectar conflictos
+│   │   └── asignar_grupo.php     # Asignar grupo
+│   │
+│   ├── inscripciones/             # Tabla: inscripciones
+│   │   ├── index.php             # Ver inscripciones
+│   │   ├── crear.php             # Inscribir estudiante
+│   │   ├── retirar.php           # Retirar inscripción
+│   │   └── calificar.php         # Ingresar nota final
+│   │
+│   ├── cambios_horario/           # Tabla: cambios_horario
+│   │   ├── index.php             # Historial cambios
+│   │   ├── registrar.php         # Registrar cambio
+│   │   └── ver.php               # Ver detalles cambio
+│   │
+│   ├── notificaciones/            # Tabla: notificaciones
+│   │   ├── index.php             # Ver notificaciones
+│   │   ├── enviar.php            # Enviar notificación
+│   │   └── marcar_leido.php      # Marcar como leído
+│   │
+│   ├── configuracion/             # Tabla: configuracion
+│   │   ├── index.php             # Ver configuración
+│   │   └── actualizar.php        # Actualizar valores
+│   │
+│   └── reportes/                  # REPORTES (basados en BD)
+│       ├── horarios_programa.php # Horarios por programa
+│       ├── ocupacion_aulas.php   # Ocupación de aulas
+│       ├── carga_profesores.php  # Carga horaria profesores
+│       ├── estudiantes_curso.php # Estudiantes por curso
+│       └── inscripciones_semestre.php
+│
+├── profesor/                      # PROFESOR (según BD)
+│   ├── dashboard.php              # Panel profesor
+│   ├── mis_horarios.php           # Ver mis horarios (de tabla horarios)
+│   ├── mis_cursos.php             # Cursos que dicto
+│   ├── mis_estudiantes.php        # Estudiantes en mis cursos
+│   └── notificaciones.php         # Mis notificaciones
+│
+├── estudiante/                    # ESTUDIANTE (según BD)
+│   ├── dashboard.php              # Panel estudiante
+│   ├── mi_horario.php             # Mi horario (de inscripciones)
+│   ├── mis_cursos.php             # Cursos inscritos
+│   ├── inscribir_curso.php        # Inscribirse en cursos
+│   ├── mis_calificaciones.php     # Ver notas finales
+│   └── mis_notificaciones.php     # Mis notificaciones
+│
+├── api/                           # API REST básica
+│   ├── horarios.php
+│   ├── cursos.php
+│   └── aulas.php
+│
+└── database/
+    └── horarios_instituto.sql     # Tu script SQL

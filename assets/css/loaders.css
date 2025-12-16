@@ -1,0 +1,550 @@
+/* LOADERS TECNOLÓGICOS POR ROL */
+
+/* Overlay para cargadores */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.loader-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.loader-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos generales para cargadores */
+.role-loader {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.loader-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.loader-subtitle {
+    color: #a0aec0;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* CARgADOR PARA COORDINADOR */
+.coordinator-loader .loader-visual {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+}
+
+.hologram-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.8;
+    animation: pulseHologram 2s infinite alternate;
+}
+
+.hologram-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border: 3px solid #00ff88;
+    border-radius: 50%;
+    animation: rotateRing 4s linear infinite;
+}
+
+.hologram-ring::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #00ff88;
+}
+
+.hologram-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.data-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #00ccff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ccff;
+    animation: floatNode 3s infinite ease-in-out;
+}
+
+.data-node:nth-child(1) { top: 20%; left: 50%; animation-delay: 0s; }
+.data-node:nth-child(2) { top: 50%; left: 80%; animation-delay: 0.5s; }
+.data-node:nth-child(3) { top: 80%; left: 50%; animation-delay: 1s; }
+.data-node:nth-child(4) { top: 50%; left: 20%; animation-delay: 1.5s; }
+
+.data-connection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.connection-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #00ff88, transparent);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scanLine 2s infinite linear;
+}
+
+@keyframes pulseHologram {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+@keyframes rotateRing {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes floatNode {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(0, -10px); }
+}
+
+@keyframes scanLine {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+/* CARgADOR PARA PROFESOR */
+.teacher-loader .loader-visual {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+}
+
+.circuit-board {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #ff9900;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.circuit-line {
+    position: absolute;
+    background: #ff9900;
+}
+
+.circuit-line.horizontal {
+    width: 100%;
+    height: 2px;
+    left: 0;
+}
+
+.circuit-line.vertical {
+    width: 2px;
+    height: 100%;
+    top: 0;
+}
+
+.circuit-line:nth-child(1) { top: 25%; }
+.circuit-line:nth-child(2) { top: 50%; }
+.circuit-line:nth-child(3) { top: 75%; }
+.circuit-line:nth-child(4) { left: 25%; }
+.circuit-line:nth-child(5) { left: 50%; }
+.circuit-line:nth-child(6) { left: 75%; }
+
+.circuit-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff9900;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff9900;
+    z-index: 2;
+}
+
+.circuit-node:nth-child(7) { top: 25%; left: 25%; }
+.circuit-node:nth-child(8) { top: 25%; left: 50%; }
+.circuit-node:nth-child(9) { top: 25%; left: 75%; }
+.circuit-node:nth-child(10) { top: 50%; left: 25%; }
+.circuit-node:nth-child(11) { top: 50%; left: 50%; }
+.circuit-node:nth-child(12) { top: 50%; left: 75%; }
+.circuit-node:nth-child(13) { top: 75%; left: 25%; }
+.circuit-node:nth-child(14) { top: 75%; left: 50%; }
+.circuit-node:nth-child(15) { top: 75%; left: 75%; }
+
+.pulse-wave {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff9900;
+    border-radius: 50%;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    animation: pulseWave 2s infinite linear;
+}
+
+@keyframes pulseWave {
+    0% {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* CARgADOR PARA ESTUDIANTE */
+.student-loader .loader-visual {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+}
+
+.neural-network {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+}
+
+.neuron {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #9d4edd;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #9d4edd;
+    animation: neuronPulse 1.5s infinite ease-in-out;
+}
+
+.neuron:nth-child(1) { top: 20%; left: 50%; }
+.neuron:nth-child(2) { top: 40%; left: 20%; }
+.neuron:nth-child(3) { top: 40%; left: 80%; }
+.neuron:nth-child(4) { top: 60%; left: 30%; }
+.neuron:nth-child(5) { top: 60%; left: 70%; }
+.neuron:nth-child(6) { top: 80%; left: 50%; }
+
+.neural-connection {
+    position: absolute;
+    background: #9d4edd;
+    height: 2px;
+    transform-origin: 0 0;
+    opacity: 0.6;
+}
+
+.connection-1 { width: 80px; top: 20%; left: 50%; transform: rotate(120deg); }
+.connection-2 { width: 80px; top: 20%; left: 50%; transform: rotate(-120deg); }
+.connection-3 { width: 70px; top: 40%; left: 20%; transform: rotate(30deg); }
+.connection-4 { width: 70px; top: 40%; left: 20%; transform: rotate(-30deg); }
+.connection-5 { width: 50px; top: 60%; left: 30%; transform: rotate(20deg); }
+
+.data-flow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff6b6b;
+    animation: dataFlow 3s infinite linear;
+}
+
+@keyframes neuronPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+@keyframes dataFlow {
+    0% {
+        top: 20%;
+        left: 50%;
+        opacity: 1;
+    }
+    25% {
+        top: 40%;
+        left: 20%;
+        opacity: 0.8;
+    }
+    50% {
+        top: 60%;
+        left: 30%;
+        opacity: 0.6;
+    }
+    75% {
+        top: 80%;
+        left: 50%;
+        opacity: 0.4;
+    }
+    100% {
+        top: 20%;
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+/* Barra de progreso tecnológica */
+.loader-progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.coordinator-loader .progress-bar {
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+}
+
+.teacher-loader .progress-bar {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+}
+
+.student-loader .progress-bar {
+    background: linear-gradient(90deg, #9d4edd, #ff6b6b);
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    color: #a0aec0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-percentage {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Mensajes de estado */
+.status-messages {
+    margin-top: 30px;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInMessage 0.5s forwards;
+}
+
+.status-item:nth-child(1) { animation-delay: 0.5s; }
+.status-item:nth-child(2) { animation-delay: 1s; }
+.status-item:nth-child(3) { animation-delay: 1.5s; }
+.status-item:nth-child(4) { animation-delay: 2s; }
+
+.status-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.coordinator-loader .status-icon {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+}
+
+.teacher-loader .status-icon {
+    background: rgba(255, 153, 0, 0.2);
+    color: #ff9900;
+}
+
+.student-loader .status-icon {
+    background: rgba(157, 78, 221, 0.2);
+    color: #9d4edd;
+}
+
+.status-text {
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+@keyframes slideInMessage {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Información del usuario */
+.user-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.coordinator-loader .user-info {
+    border-left-color: #00ff88;
+}
+
+.teacher-loader .user-info {
+    border-left-color: #ff9900;
+}
+
+.student-loader .user-info {
+    border-left-color: #9d4edd;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    margin: 0 auto 15px;
+    border: 3px solid;
+}
+
+.coordinator-loader .user-avatar {
+    border-color: #00ff88;
+}
+
+.teacher-loader .user-avatar {
+    border-color: #ff9900;
+}
+
+.student-loader .user-avatar {
+    border-color: #9d4edd;
+}
+
+.user-name {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.user-role-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.coordinator-loader .user-role-badge {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+}
+
+.teacher-loader .user-role-badge {
+    background: rgba(255, 153, 0, 0.2);
+    color: #ff9900;
+}
+
+.student-loader .user-role-badge {
+    background: rgba(157, 78, 221, 0.2);
+    color: #9d4edd;
+}

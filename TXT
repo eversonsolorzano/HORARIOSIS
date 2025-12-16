@@ -1,0 +1,11 @@
+ADMIN ACCESO
+Usuario: admin
+contraseña: admin123
+
+PROFESOR ACCESO
+Usuario: prof.juan
+Contraseña: prof123
+
+ESTUDIANTE
+Usuario. est.maria
+Contraseña: est123
